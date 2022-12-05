@@ -1,0 +1,26 @@
+#!/bin/sh
+
+set -e
+
+#DEBHELPER#
+
+if [ "$1" = "configure" ]; then
+    if [ ! -f /etc/sway.yml ]; then
+	echo "Sway: config does not exist, creating..."
+
+        echo "---" > /etc/sway.yml
+	echo "server:" >> /etc/sway.yml
+	echo "  port: 60413" >> /etc/sway.yml
+	echo "  host: '::1'" >> /etc/sway.yml
+	echo "  max_connections: 5" >> /etc/sway.yml
+	echo "" >> /etc/sway.yml
+	echo "checks: {}" >> /etc/sway.yml
+    else
+        echo "Sway: config already exists, not creating"
+    fi
+
+    chown sway: /etc/sway.yml
+    chmod 0600 /etc/sway.yml
+fi
+
+exit 0

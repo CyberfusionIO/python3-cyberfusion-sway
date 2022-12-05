@@ -1,0 +1,15 @@
+[Unit]
+Description=Sway, agent for HAProxy agent health checks
+After=network.target
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+Type=notify
+ExecStart=/usr/bin/sway-server
+Environment=SWAY_CONFIG_FILE_PATH=/etc/sway.yml
+User=sway
+Group=sway
+Restart=on-failure
+RestartSec=60

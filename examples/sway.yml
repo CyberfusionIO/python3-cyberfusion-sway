@@ -1,0 +1,13 @@
+---
+server:
+  port: 60413
+  host: '::1'
+  max_connections: 5
+
+checks:
+  functional_service:
+    command: 'true'
+  broken_service:
+    command: 'false'
+  multiple_words_command:
+    command: 'echo hello'
