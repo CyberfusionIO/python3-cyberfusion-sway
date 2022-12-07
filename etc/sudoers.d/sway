@@ -1,0 +1,2 @@
+sway ALL = (postgres) NOPASSWD: /usr/lib64/nagios/plugins/check_pgsql
+sway ALL = NOPASSWD: /usr/lib64/nagios/plugins/check_mysql

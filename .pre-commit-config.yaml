@@ -1,0 +1,53 @@
+repos:
+  - repo: https://github.com/pre-commit/mirrors-isort
+    rev: v5.6.4
+    hooks:
+      - id: isort
+  - repo: https://github.com/ambv/black
+    rev: 22.3.0
+    hooks:
+      - id: black
+        language_version: python3
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.2.0
+    hooks:
+      - id: check-merge-conflict
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-json
+      - id: check-yaml
+        exclude: '^.gitlab-ci.yml$'
+      - id: debug-statements
+      - id: requirements-txt-fixer
+      - id: detect-private-key
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v0.942
+    hooks:
+      - id: mypy
+        language_version: python3
+        additional_dependencies:
+          # Keep versions in sync with requirements/dev.txt
+          - types-PyYAML==6.0.6
+  - repo: https://gitlab.com/pycqa/flake8
+    rev: 3.8.4
+    hooks:
+      - id: flake8
+        # Keep in sync with .flake8. pre-commit does not
+        # inherit 'exclude' config option from .flake8
+        exclude: '^tests/'
+        additional_dependencies:
+          - flake8-bugbear==20.11.1
+          - flake8-comprehensions==3.3.0
+          - flake8-docstrings==1.5.0
+          - flake8-junit-report==2.1.0
+          - flake8-logging-format==0.6.0
+          - flake8-pep3101==1.3.0
+          - flake8-print==4.0.0
+          - flake8-rst==0.7.2
+          - flake8-rst-docstrings==0.0.14
+  - repo: https://github.com/pre-commit/pygrep-hooks
+    rev: v1.9.0
+    hooks:
+      - id: python-use-type-annotations
+      - id: python-check-blanket-type-ignore
+      - id: python-check-blanket-noqa
