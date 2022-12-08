@@ -83,3 +83,15 @@ def serve(
                 logger.warning(
                     f"{client_address} Did not receive data in {TIMEOUT_SOCKET} seconds"
                 )
+            except ConnectionResetError:
+                logger.warning(
+                    f"""{client_address} Connection reset by peer.
+
+Most common cause: HAProxy reset the connection to run another agent check. Sometimes, this happens before 'agent-inter' is reached.
+
+Possible solutions:
+
+- Ensure that 'agent-send' is set. Otherwise, Sway waits for data for TIMEOUT_SOCKET. HAProxy may reset the connection in the meantime.
+- Increase 'agent-inter'. This increases chances that HAProxy doesn't reset the connection while an agent check is running.
+"""
+                )
