@@ -1,3 +1,11 @@
+python3-cyberfusion-sway (1.0.1) unstable; urgency=low
+
+  - Handle connection resets gracefully
+  - Lower command timeout
+  - Update HAProxy example
+
+ -- William Edwards <wedwards@cyberfusion.nl>  Thu, 8 Dec 2022 11:31:00 +0200
+
 python3-cyberfusion-sway (1.0) unstable; urgency=low
 
   - Initial release
