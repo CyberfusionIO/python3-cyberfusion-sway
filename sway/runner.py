@@ -4,7 +4,7 @@ import subprocess
 from dataclasses import dataclass
 from typing import List
 
-TIMEOUT_COMMAND = 2
+TIMEOUT_COMMAND = 1
 
 
 @dataclass
