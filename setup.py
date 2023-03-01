@@ -7,7 +7,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="sway",
-    version="1.0.2",
+    version="1.0.3",
     description="Agent for HAProxy agent health checks",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -25,7 +25,7 @@ setup(
     data_files=[],
     entry_points={"console_scripts": ["sway-server=sway.server:serve"]},
     install_requires=[
-        "PyYAML==5.4.1",
+        "PyYAML>=3.13",
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
