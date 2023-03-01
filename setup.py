@@ -25,7 +25,7 @@ setup(
     data_files=[],
     entry_points={"console_scripts": ["sway-server=sway.server:serve"]},
     install_requires=[
-        "PyYAML==5.4.1",
+        "PyYAML>=3.13",
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
