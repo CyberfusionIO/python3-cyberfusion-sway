@@ -14,7 +14,7 @@ class CheckNotExistsError(Exception):
     name: str
 
 
-class CheckStates(Enum):
+class CheckState(Enum):
     """Check states."""
 
     POSITIVE: str = "positive"
@@ -37,11 +37,11 @@ class Check:
         return self._command.split(" ")
 
     @property
-    def state(self) -> CheckStates:
+    def state(self) -> CheckState:
         """Get state by running command."""
         try:
             execute_command(self.command)
         except CommandHasNonZeroReturnCodeError:
-            return CheckStates.NEGATIVE
+            return CheckState.NEGATIVE
 
-        return CheckStates.POSITIVE
+        return CheckState.POSITIVE

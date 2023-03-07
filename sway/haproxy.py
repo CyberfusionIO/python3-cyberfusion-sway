@@ -3,10 +3,10 @@
 from enum import Enum
 from typing import List, Optional
 
-from sway.checks import Check, CheckStates
+from sway.checks import Check, CheckState
 
 
-class HAProxyStateWords(Enum):
+class HAProxyStateWord(Enum):
     """HAProxy states.
 
     From https://cbonte.github.io/haproxy-dconv/2.4/configuration.html#5.2-agent-check
@@ -36,7 +36,7 @@ class Response:
         result = []
 
         for check in self.checks:
-            if check.state != CheckStates.NEGATIVE:
+            if check.state != CheckState.NEGATIVE:
                 continue
 
             result.append(check)
@@ -60,12 +60,12 @@ class Response:
         return " ".join(words)
 
     @property
-    def state(self) -> HAProxyStateWords:
+    def state(self) -> HAProxyStateWord:
         """Get state."""
         if self._negative_state_checks:
-            return HAProxyStateWords.DOWN
+            return HAProxyStateWord.DOWN
 
-        return HAProxyStateWords.UP
+        return HAProxyStateWord.UP
 
     def __str__(self) -> str:
         """Stringify response."""

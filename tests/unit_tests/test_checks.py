@@ -1,4 +1,4 @@
-from sway.checks import CheckStates
+from sway.checks import CheckState
 from sway.config import Config
 
 
@@ -12,12 +12,12 @@ def test_check_command(config: Config) -> None:
 def test_check_state_positive(config: Config) -> None:
     assert (
         config.get_check_by_name(name="functional_service").state
-        == CheckStates.POSITIVE
+        == CheckState.POSITIVE
     )
 
 
 def test_check_state_negative(config: Config) -> None:
     assert (
         config.get_check_by_name(name="broken_service").state
-        == CheckStates.NEGATIVE
+        == CheckState.NEGATIVE
     )

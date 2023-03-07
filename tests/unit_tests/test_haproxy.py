@@ -1,5 +1,5 @@
 from sway.config import Config
-from sway.haproxy import HAProxyStateWords, Response
+from sway.haproxy import HAProxyStateWord, Response
 
 
 def test_response_negative_state_checks(config: Config) -> None:
@@ -37,10 +37,10 @@ def test_response_string_up(config: Config) -> None:
 def test_response_state_down(config: Config) -> None:
     state = Response(checks=config.checks).state
 
-    assert state == HAProxyStateWords.DOWN
+    assert state == HAProxyStateWord.DOWN
 
 
 def test_response_state_up(config: Config) -> None:
     state = Response(checks=[config.checks[0]]).state
 
-    assert state == HAProxyStateWords.UP
+    assert state == HAProxyStateWord.UP

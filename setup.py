@@ -7,7 +7,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="sway",
-    version="1.0.3",
+    version="1.0.4",
     description="Sway is an agent for HAProxy agent health checks.",
     long_description=long_description,
     long_description_content_type="text/markdown",
