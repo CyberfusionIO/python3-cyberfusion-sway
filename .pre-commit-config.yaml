@@ -28,7 +28,7 @@ repos:
         additional_dependencies:
           # Keep versions in sync with requirements/dev.txt
           - types-PyYAML==6.0.6
-  - repo: https://gitlab.com/pycqa/flake8
+  - repo: https://github.com/PyCQA/flake8
     rev: 3.8.4
     hooks:
       - id: flake8
