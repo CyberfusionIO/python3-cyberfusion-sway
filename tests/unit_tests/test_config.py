@@ -1,7 +1,7 @@
 import pytest
 from _pytest.monkeypatch import MonkeyPatch
 
-from sway.checks import CheckNotExistsError, CheckStates
+from sway.checks import CheckNotExistsError, CheckState
 from sway.config import Config, get_config_file_path
 
 
