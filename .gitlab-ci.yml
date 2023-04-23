@@ -1,5 +1,5 @@
 include:
-  - project: 'cyberfusion/gitlab-ci-includes'
+  - project: 'shared/gitlab-ci-includes'
     ref: main
     file:
       - '/base.yml'
