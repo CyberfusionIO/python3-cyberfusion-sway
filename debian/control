@@ -9,7 +9,5 @@ Package: python3-cyberfusion-sway
 Architecture: all
 Suggests: monitoring-plugins-contrib, haproxy, haproxy-doc
 Depends: python3, python3-yaml, python3-sdnotify, python3-systemd, sudo, ${misc:Depends}
-Description: Agent for HAProxy agent health checks
+Description: Sway is an agent for HAProxy agent health checks.
  Sway is an agent for HAProxy agent health checks.
- For more information about auxiliary agent health
- checks, refer to the HAProxy documentation.
