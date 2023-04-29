@@ -36,11 +36,13 @@ Find example configs in `examples/`.
 
 # Usage
 
-Start Sway manually with:
+## Start
+
+### Manually
 
     ./start_server.py
 
-Installed the Debian package? Use systemd:
+### systemd
 
     systemctl start sway.service
 
