@@ -23,7 +23,7 @@ def test_config_checks_server_port(config: Config) -> None:
 
 
 def test_config_checks_server_host(config: Config) -> None:
-    assert config.server_host == "::1"
+    assert config.server_host == "127.0.0.1"
 
 
 def test_config_checks_server_max_connections(config: Config) -> None:
@@ -32,7 +32,7 @@ def test_config_checks_server_max_connections(config: Config) -> None:
 
 def test_config_settings(config: Config) -> None:
     assert config._settings == {
-        "server": {"port": 60413, "host": "::1", "max_connections": 5},
+        "server": {"port": 60413, "host": "127.0.0.1", "max_connections": 5},
         "checks": {
             "functional_service": {"command": "true"},
             "broken_service": {"command": "false"},
