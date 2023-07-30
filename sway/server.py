@@ -45,7 +45,10 @@ def serve(
     multiprocessing_connection: Optional[Connection] = None,  # For tests
 ) -> None:
     """Serve TCP requests."""
-    with socket.socket(socket.AF_INET6, socket.SOCK_STREAM) as server_socket:
+    with socket.socket(
+        socket.AF_INET6 if ":" in config.server_host else socket.AF_INET,
+        socket.SOCK_STREAM,
+    ) as server_socket:
         server_socket.setsockopt(
             socket.SOL_SOCKET, socket.SO_REUSEADDR, 1
         )  # Don't wait for TIME_WAIT expire

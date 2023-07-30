@@ -45,7 +45,7 @@ def sway_server():
 def sway_client_socket(
     config: Config, sway_server: Generator[None, None, None]
 ) -> Generator[socket.socket, None, None]:
-    with socket.socket(socket.AF_INET6, socket.SOCK_STREAM) as s:
-        s.connect(("::1", config.server_port))
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        s.connect((config.server_host, config.server_port))
 
         yield s
