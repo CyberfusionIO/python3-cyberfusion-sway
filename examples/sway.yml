@@ -11,3 +11,5 @@ checks:
     command: 'false'
   multiple_words_command:
     command: 'echo hello'
+  multiple_items_command:
+    command: ['echo', 'hello']

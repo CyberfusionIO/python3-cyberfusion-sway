@@ -2,7 +2,7 @@
 
 from dataclasses import dataclass
 from enum import Enum
-from typing import List
+from typing import List, Union
 
 from sway.runner import CommandHasNonZeroReturnCodeError, execute_command
 
@@ -24,7 +24,7 @@ class CheckState(Enum):
 class Check:
     """Represents check."""
 
-    def __init__(self, *, name: str, command: str) -> None:
+    def __init__(self, *, name: str, command: Union[str, list]) -> None:
         """Set attributes."""
         self.name = name
         self._command = command
@@ -34,7 +34,10 @@ class Check:
     @property
     def command(self) -> List[str]:
         """Get command."""
-        return self._command.split(" ")
+        if not isinstance(self._command, list):
+            return self._command.split(" ")
+
+        return self._command
 
     @property
     def state(self) -> CheckState:

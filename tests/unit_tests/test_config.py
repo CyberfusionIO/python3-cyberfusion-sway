@@ -15,7 +15,7 @@ def test_config_config_file_path(monkeypatch: MonkeyPatch) -> None:
 
 
 def test_config_checks_amount(config: Config) -> None:
-    assert len(config.checks) == 3
+    assert len(config.checks) == 4
 
 
 def test_config_checks_server_port(config: Config) -> None:
@@ -37,6 +37,7 @@ def test_config_settings(config: Config) -> None:
             "functional_service": {"command": "true"},
             "broken_service": {"command": "false"},
             "multiple_words_command": {"command": "echo hello"},
+            "multiple_items_command": {"command": ["echo", "hello"]},
         },
     }
 
