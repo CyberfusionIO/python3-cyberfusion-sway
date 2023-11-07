@@ -2,8 +2,15 @@ from sway.checks import CheckState
 from sway.config import Config
 
 
-def test_check_command(config: Config) -> None:
+def test_check_command_string(config: Config) -> None:
     assert config.get_check_by_name(name="multiple_words_command").command == [
+        "echo",
+        "hello",
+    ]
+
+
+def test_check_command_list(config: Config) -> None:
+    assert config.get_check_by_name(name="multiple_items_command").command == [
         "echo",
         "hello",
     ]
