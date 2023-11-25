@@ -4,7 +4,7 @@ from dataclasses import dataclass
 from enum import Enum
 from typing import List, Union
 
-from sway.runner import CommandHasNonZeroReturnCodeError, execute_command
+from sway.runner import execute_command
 
 
 @dataclass
@@ -44,7 +44,7 @@ class Check:
         """Get state by running command."""
         try:
             execute_command(self.command)
-        except CommandHasNonZeroReturnCodeError:
+        except Exception:
             return CheckState.NEGATIVE
 
         return CheckState.POSITIVE
