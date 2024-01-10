@@ -68,27 +68,32 @@ def serve(
                 with client_socket:
                     client_socket.settimeout(TIMEOUT_SOCKET)
 
-                    logger.info(f"{client_address} Established connection")
+                    logger.info("%s Established connection", client_address)
 
                     data = client_socket.recv(1024).decode("utf-8").rstrip()
 
                     response = str(Response(checks=get_checks_from_data(data)))
 
                     logger.info(
-                        f"{client_address} Sending back response '{response.rstrip()}'..."
+                        "%s Sending back response '%s'...",
+                        client_address,
+                        response.rstrip(),
                     )
                     client_socket.sendall(response.encode("utf-8"))
             except CheckNotExistsError:
                 logger.warning(
-                    f"{client_address} Requested non-existent check, not sending back response"
+                    "%s Requested non-existent check, not sending back response",
+                    client_address,
                 )
             except socket.timeout:
                 logger.warning(
-                    f"{client_address} Did not receive data in {TIMEOUT_SOCKET} seconds"
+                    "%s Did not receive data in %s seconds",
+                    client_address,
+                    TIMEOUT_SOCKET,
                 )
             except ConnectionResetError:
                 logger.warning(
-                    f"""{client_address} Connection reset by peer.
+                    """%s Connection reset by peer.
 
 Most common cause: HAProxy reset the connection to run another agent check. Sometimes, this happens before 'agent-inter' is reached.
 
@@ -96,5 +101,6 @@ Possible solutions:
 
 - Ensure that 'agent-send' is set. Otherwise, Sway waits for data for TIMEOUT_SOCKET. HAProxy may reset the connection in the meantime.
 - Increase 'agent-inter'. This increases chances that HAProxy doesn't reset the connection while an agent check is running.
-"""
+""",
+                    client_address,
                 )
