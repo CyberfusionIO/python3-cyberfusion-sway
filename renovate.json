@@ -8,5 +8,8 @@
   },
   "pre-commit": {
     "enabled": true
+  },
+  "pip_setup": {
+    "enabled": false
   }
 }
