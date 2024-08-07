@@ -1,0 +1,7 @@
+---
+server:
+  port: 60413
+  host: '::1'
+  max_connections: 5
+
+checks: {}
