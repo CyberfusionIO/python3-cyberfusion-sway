@@ -10,10 +10,12 @@ Options:
 
 import logging
 import socket
+import sys
 from multiprocessing.connection import Connection
 from typing import List, Optional
 
 import docopt
+import sdnotify
 from schema import Schema
 
 from sway.checks import Check, CheckNotExistsError
@@ -23,28 +25,22 @@ from sway.runner import TIMEOUT_COMMAND
 
 TIMEOUT_SOCKET = TIMEOUT_COMMAND + 1
 
-ENABLED_SYSTEMD = True
-
-try:
-    import sdnotify
-    from systemd.journal import JournalHandler
-except ImportError:
-    ENABLED_SYSTEMD = False
 
 root_logger = logging.getLogger()
 root_logger.propagate = False
 root_logger.setLevel(logging.DEBUG)
 
+handler = logging.StreamHandler(sys.stdout)
+handler.setLevel(logging.INFO)
+
+root_logger.addHandler(handler)
+
+logger = logging.getLogger(__name__)
+
 
 def get_args() -> docopt.Dict:
     """Get docopt args."""
     return docopt.docopt(__doc__)
-
-
-if ENABLED_SYSTEMD:
-    root_logger.addHandler(JournalHandler())
-
-logger = logging.getLogger(__name__)
 
 
 def get_checks_from_data(config: Config, data: str) -> List[Check]:
@@ -75,8 +71,7 @@ def serve(
         server_socket.bind((config.server_host, config.server_port))
         server_socket.listen(config.server_max_connections)
 
-        if ENABLED_SYSTEMD:
-            sdnotify.SystemdNotifier().notify("READY=1")
+        sdnotify.SystemdNotifier().notify("READY=1")
 
         if multiprocessing_connection:
             multiprocessing_connection.send("Ready")
