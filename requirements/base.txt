@@ -1,2 +1,4 @@
+docopt==0.6.2
 PyYAML==5.3.1
+schema==0.7.5
 sdnotify==0.3.1

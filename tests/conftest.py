@@ -3,8 +3,8 @@ import os
 import socket
 from typing import Generator
 
+import docopt
 import pytest
-from _pytest.fixtures import SubRequest
 from pytest_mock import MockerFixture
 
 from sway import server
@@ -13,22 +13,18 @@ from sway.config import Config
 
 @pytest.fixture
 def config() -> Config:
-    return Config()
-
-
-@pytest.fixture(autouse=True)
-def config_file_path_mock(mocker: MockerFixture, request: SubRequest) -> None:
-    if "original_config_file_path" in request.keywords:
-        return
-
-    mocker.patch(
-        "sway.config.get_config_file_path",
-        return_value=os.path.join("tests", "sway.yml"),
-    )
+    return Config(os.path.join("tests", "sway.yml"))
 
 
 @pytest.fixture
-def sway_server():
+def sway_server(mocker: MockerFixture, config: Config):
+    mocker.patch(
+        "sway.server.get_args",
+        return_value=docopt.docopt(
+            server.__doc__, ["--config-file-path", config.path]
+        ),
+    )
+
     pipe_out, pipe_in = multiprocessing.Pipe()
 
     process = multiprocessing.Process(target=server.serve, args=(pipe_out,))
