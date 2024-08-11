@@ -1,3 +1,11 @@
+python3-cyberfusion-sway (1.0.8) unstable; urgency=low
+
+  - Log to stdout instead of journald
+  - Replace SWAY_CONFIG_FILE_PATH env var by --config-file-path
+    CLI argument
+
+ -- William Edwards <wedwards@cyberfusion.nl>  Sun, 11 Aug 2024 17:39:00 +0200
+
 python3-cyberfusion-sway (1.0.7) unstable; urgency=low
 
   - Let dh_install place /etc/sway.yml
