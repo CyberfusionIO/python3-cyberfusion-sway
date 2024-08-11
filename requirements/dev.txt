@@ -10,6 +10,6 @@ flake8-print==5.0.0
 flake8-rst==0.8.0
 flake8-rst-docstrings==0.3.0
 isort==5.13.2
-mypy==1.8.0
+mypy==1.11.1
 pre-commit==3.8.0
 types-PyYAML==6.0.12.12
