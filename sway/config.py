@@ -1,6 +1,5 @@
 """Config-related classes."""
 
-import os
 from typing import List
 
 import yaml
@@ -8,17 +7,12 @@ import yaml
 from sway.checks import Check, CheckNotExistsError
 
 
-def get_config_file_path() -> str:
-    """Get config file path."""
-    return os.environ["SWAY_CONFIG_FILE_PATH"]
-
-
 class Config:
     """Represents YAML config."""
 
-    def __init__(self) -> None:
-        """Do nothing."""
-        pass
+    def __init__(self, path: str) -> None:
+        """Set attributes."""
+        self.path = path
 
     @property
     def checks(self) -> List[Check]:
@@ -33,7 +27,7 @@ class Config:
     @property
     def _settings(self) -> dict:
         """Get settings."""
-        with open(get_config_file_path(), "rb") as fh:
+        with open(self.path, "rb") as fh:
             return yaml.load(fh.read(), Loader=yaml.SafeLoader)
 
     def get_check_by_name(self, *, name: str) -> Check:

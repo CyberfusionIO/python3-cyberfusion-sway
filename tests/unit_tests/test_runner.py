@@ -7,7 +7,7 @@ from sway.runner import (
 )
 
 
-def test_execute_command_non_zero_return_code():
+def test_execute_command_non_zero_return_code() -> None:
     with pytest.raises(CommandHasNonZeroReturnCodeError) as e:
         execute_command(["false"])
 
@@ -16,7 +16,7 @@ def test_execute_command_non_zero_return_code():
     assert e.value.output == b""
 
 
-def test_execute_command_timeout():
+def test_execute_command_timeout() -> None:
     with pytest.raises(CommandTimeoutError) as e:
         execute_command(["sleep", "5"], timeout=1)
 

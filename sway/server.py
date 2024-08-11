@@ -1,9 +1,20 @@
-"""TCP server."""
+"""TCP server.
+
+Usage:
+  sway-server --config-file-path=<config-file-path>
+
+Options:
+  -h --help                                      Show this screen.
+  --config-file-path=<config-file-path>          Path to config file.
+"""
 
 import logging
 import socket
 from multiprocessing.connection import Connection
 from typing import List, Optional
+
+import docopt
+from schema import Schema
 
 from sway.checks import Check, CheckNotExistsError
 from sway.config import Config
@@ -24,16 +35,19 @@ root_logger = logging.getLogger()
 root_logger.propagate = False
 root_logger.setLevel(logging.DEBUG)
 
+
+def get_args() -> docopt.Dict:
+    """Get docopt args."""
+    return docopt.docopt(__doc__)
+
+
 if ENABLED_SYSTEMD:
     root_logger.addHandler(JournalHandler())
 
 logger = logging.getLogger(__name__)
 
 
-config = Config()
-
-
-def get_checks_from_data(data: str) -> List[Check]:
+def get_checks_from_data(config: Config, data: str) -> List[Check]:
     """Get checks objects from TCP request data."""
     return [
         config.get_check_by_name(name=check_name)
@@ -45,6 +59,12 @@ def serve(
     multiprocessing_connection: Optional[Connection] = None,  # For tests
 ) -> None:
     """Serve TCP requests."""
+    args = get_args()
+    schema = Schema({"--config-file-path": str})
+    args = schema.validate(args)
+
+    config = Config(args["--config-file-path"])
+
     with socket.socket(
         socket.AF_INET6 if ":" in config.server_host else socket.AF_INET,
         socket.SOCK_STREAM,
@@ -72,7 +92,9 @@ def serve(
 
                     data = client_socket.recv(1024).decode("utf-8").rstrip()
 
-                    response = str(Response(checks=get_checks_from_data(data)))
+                    response = str(
+                        Response(checks=get_checks_from_data(config, data))
+                    )
 
                     logger.info(
                         "%s Sending back response '%s'...",

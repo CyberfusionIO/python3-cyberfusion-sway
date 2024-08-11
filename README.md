@@ -55,4 +55,3 @@ Run tests with pytest:
 Note:
 
 - The config file in `tests/sway.yml` is used.
-- The `SWAY_CONFIG_FILE_PATH` environment variable is ignored.

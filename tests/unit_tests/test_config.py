@@ -1,17 +1,7 @@
 import pytest
-from _pytest.monkeypatch import MonkeyPatch
 
-from sway.checks import CheckNotExistsError, CheckState
-from sway.config import Config, get_config_file_path
-
-
-@pytest.mark.original_config_file_path
-def test_config_config_file_path(monkeypatch: MonkeyPatch) -> None:
-    path = "/tmp/test_config.yml"
-
-    monkeypatch.setenv("SWAY_CONFIG_FILE_PATH", path)
-
-    assert get_config_file_path() == path
+from sway.checks import CheckNotExistsError
+from sway.config import Config
 
 
 def test_config_checks_amount(config: Config) -> None:
