@@ -1,13 +1,10 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended"
+    "local>shared/renovate-config"
   ],
   "pip_requirements": {
     "fileMatch": ["requirements/dev.txt", "requirements/test.txt"]
-  },
-  "pre-commit": {
-    "enabled": true
   },
   "pip_setup": {
     "enabled": false
