@@ -11,9 +11,8 @@ setup(
     description="Sway is an agent for HAProxy agent health checks.",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    python_requires=">=3.6",
-    author="William Edwards",
-    author_email="support@cyberfusion.nl",
+    author="Cyberfusion",
+    author_email="support@cyberfusion.io",
     url="https://github.com/CyberfusionIO/python3-cyberfusion-sway",
     platforms=["linux"],
     packages=find_packages(
@@ -27,11 +26,4 @@ setup(
     install_requires=[
         "PyYAML>=3.13",
     ],
-    classifiers=[
-        "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: MIT License",
-        "Operating System :: OS Independent",
-    ],
-    keywords=["cyberfusion", "haproxy"],
-    license="MIT",
 )
