@@ -6,7 +6,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setup(
-    name="sway",
+    name="python3-cyberfusion-sway",
     version="1.0.8.1",
     description="Sway is an agent for HAProxy agent health checks.",
     long_description=long_description,
@@ -14,7 +14,7 @@ setup(
     python_requires=">=3.6",
     author="William Edwards",
     author_email="support@cyberfusion.nl",
-    url="https://github.com/CyberfusionIO/sway",
+    url="https://github.com/CyberfusionIO/python3-cyberfusion-sway",
     platforms=["linux"],
     packages=find_packages(
         include=[

@@ -1,4 +1,4 @@
-# Sway
+# python3-cyberfusion-sway
 
 Sway is an agent for [HAProxy agent health checks](https://cbonte.github.io/haproxy-dconv/2.4/configuration.html#agent-check).
 
