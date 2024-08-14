@@ -1,3 +1,9 @@
+python3-cyberfusion-sway (1.0.8.1) unstable; urgency=low
+
+  - Handle non-existent config file
+
+ -- William Edwards <wedwards@cyberfusion.nl>  Sun, 11 Aug 2024 17:39:00 +0200
+
 python3-cyberfusion-sway (1.0.8) unstable; urgency=low
 
   - Log to stdout instead of journald

@@ -9,6 +9,7 @@ Options:
 """
 
 import logging
+import os
 import socket
 import sys
 from multiprocessing.connection import Connection
@@ -16,7 +17,7 @@ from typing import List, Optional
 
 import docopt
 import sdnotify
-from schema import Schema
+from schema import And, Schema
 
 from sway.checks import Check, CheckNotExistsError
 from sway.config import Config
@@ -56,7 +57,13 @@ def serve(
 ) -> None:
     """Serve TCP requests."""
     args = get_args()
-    schema = Schema({"--config-file-path": str})
+    schema = Schema(
+        {
+            "--config-file-path": And(
+                os.path.exists, error="Config file doesn't exist"
+            )
+        }
+    )
     args = schema.validate(args)
 
     config = Config(args["--config-file-path"])
