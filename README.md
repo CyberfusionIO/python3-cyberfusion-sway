@@ -45,13 +45,3 @@ Find example configs in `examples/`.
 ### systemd
 
     systemctl start sway.service
-
-# Tests
-
-Run tests with pytest:
-
-    pytest tests/
-
-Note:
-
-- The config file in `tests/sway.yml` is used.
