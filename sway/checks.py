@@ -9,7 +9,7 @@ from sway.runner import execute_command
 
 @dataclass
 class CheckNotExistsError(Exception):
-    """Exception to raise when check doesn't exist."""
+    """Check doesn't exist."""
 
     name: str
 

@@ -9,7 +9,7 @@ TIMEOUT_COMMAND = 1
 
 @dataclass
 class CommandHasNonZeroReturnCodeError(Exception):
-    """Exception to raise when command has non-zero return code."""
+    """Command has non-zero return code."""
 
     command: List[str]
     return_code: int
@@ -18,7 +18,7 @@ class CommandHasNonZeroReturnCodeError(Exception):
 
 @dataclass
 class CommandTimeoutError(Exception):
-    """Exception to raise when command times out."""
+    """Command timed out."""
 
     command: List[str]
 
