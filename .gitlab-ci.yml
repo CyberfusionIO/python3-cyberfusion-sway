@@ -19,9 +19,10 @@ unit test and feature test:
   image: python:3.11
   script:
     - !reference [.add repositories, script]
-    - apt-get -y install python3-yaml python3-sdnotify sudo python3-docopt python3-schema
+    - apt-get -y install sudo
     - adduser --disabled-password --gecos "" sway
     - pip install --no-cache-dir -r requirements/test.txt
+    - pip install .
     - sudo -u sway PYTHONPATH=$CI_PROJECT_DIR:/usr/lib/python3/dist-packages pytest -n 10 -vvv --cov-branch --cov=sway --cov-config=.coveragerc --cov-fail-under=80 --junitxml=report-pytest.xml
   artifacts:
     reports:
