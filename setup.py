@@ -7,7 +7,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="python3-cyberfusion-sway",
-    version="1.0.8.1",
+    version="1.0.9",
     description="Sway is an agent for HAProxy agent health checks.",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -24,6 +24,9 @@ setup(
     data_files=[],
     entry_points={"console_scripts": ["sway-server=sway.server:serve"]},
     install_requires=[
-        "PyYAML>=3.13",
+        "docopt==0.6.2",
+        "PyYAML==6.0",
+        "schema==0.7.5",
+        "sdnotify==0.3.1",
     ],
 )
