@@ -25,7 +25,7 @@ setup(
     entry_points={"console_scripts": ["sway-server=sway.server:serve"]},
     install_requires=[
         "docopt==0.6.2",
-        "PyYAML==5.3.1",
+        "PyYAML==6.0",
         "schema==0.7.5",
         "sdnotify==0.3.1",
     ],
