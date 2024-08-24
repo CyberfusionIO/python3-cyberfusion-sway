@@ -20,9 +20,7 @@ def config() -> Config:
 def sway_server(mocker: MockerFixture, config: Config):
     mocker.patch(
         "sway.server.get_args",
-        return_value=docopt.docopt(
-            server.__doc__, ["--config-file-path", config.path]
-        ),
+        return_value=docopt.docopt(server.__doc__, ["--config-file-path", config.path]),
     )
 
     pipe_out, pipe_in = multiprocessing.Pipe()

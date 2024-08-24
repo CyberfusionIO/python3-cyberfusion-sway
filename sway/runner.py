@@ -23,14 +23,10 @@ class CommandTimeoutError(Exception):
     command: List[str]
 
 
-def execute_command(
-    command: List[str], *, timeout: int = TIMEOUT_COMMAND
-) -> None:
+def execute_command(command: List[str], *, timeout: int = TIMEOUT_COMMAND) -> None:
     """Execute command."""
     try:
-        subprocess.check_output(
-            command, stderr=subprocess.STDOUT, timeout=timeout
-        )
+        subprocess.check_output(command, stderr=subprocess.STDOUT, timeout=timeout)
     except subprocess.CalledProcessError as e:
         raise CommandHasNonZeroReturnCodeError(
             command=command, return_code=e.returncode, output=e.output
