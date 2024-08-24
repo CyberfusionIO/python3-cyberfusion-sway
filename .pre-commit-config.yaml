@@ -1,13 +1,4 @@
 repos:
-  - repo: https://github.com/pycqa/isort
-    rev: 5.13.2
-    hooks:
-      - id: isort
-  - repo: https://github.com/ambv/black
-    rev: 24.8.0
-    hooks:
-      - id: black
-        language_version: python3
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.6.0
     hooks:
@@ -28,26 +19,17 @@ repos:
         additional_dependencies:
           # Keep versions in sync with requirements/dev.txt
           - types-PyYAML==6.0.12.12
-  - repo: https://github.com/PyCQA/flake8
-    rev: 7.1.1
-    hooks:
-      - id: flake8
-        # Keep in sync with .flake8. pre-commit does not
-        # inherit 'exclude' config option from .flake8
-        exclude: '^tests/'
-        additional_dependencies:
-          - flake8-bugbear==23.12.2
-          - flake8-comprehensions==3.14.0
-          - flake8-docstrings==1.7.0
-          - flake8-junit-report==2.1.0
-          - flake8-logging-format==0.9.0
-          - flake8-pep3101==2.1.0
-          - flake8-print==5.0.0
-          - flake8-rst==0.8.0
-          - flake8-rst-docstrings==0.3.0
   - repo: https://github.com/pre-commit/pygrep-hooks
     rev: v1.10.0
     hooks:
       - id: python-use-type-annotations
       - id: python-check-blanket-type-ignore
       - id: python-check-blanket-noqa
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.6.2
+    hooks:
+      - id: ruff
+        types_or: [ python, pyi, jupyter ]
+        args: [ --fix ]
+      - id: ruff-format
+        types_or: [ python, pyi, jupyter ]

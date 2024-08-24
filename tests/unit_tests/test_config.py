@@ -34,8 +34,7 @@ def test_config_settings(config: Config) -> None:
 
 def test_get_check_by_name_exists(config: Config) -> None:
     assert (
-        config.get_check_by_name(name="functional_service").name
-        == "functional_service"
+        config.get_check_by_name(name="functional_service").name == "functional_service"
     )
 
 

@@ -3,9 +3,7 @@ from sway.haproxy import HAProxyStateWord, Response
 
 
 def test_response_negative_state_checks(config: Config) -> None:
-    negative_state_checks = Response(
-        checks=config.checks
-    )._negative_state_checks
+    negative_state_checks = Response(checks=config.checks)._negative_state_checks
 
     assert len(negative_state_checks) == 1
 

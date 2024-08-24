@@ -46,10 +46,7 @@ def get_args() -> docopt.Dict:
 
 def get_checks_from_data(config: Config, data: str) -> List[Check]:
     """Get checks objects from TCP request data."""
-    return [
-        config.get_check_by_name(name=check_name)
-        for check_name in data.split(",")
-    ]
+    return [config.get_check_by_name(name=check_name) for check_name in data.split(",")]
 
 
 def serve(
@@ -58,11 +55,7 @@ def serve(
     """Serve TCP requests."""
     args = get_args()
     schema = Schema(
-        {
-            "--config-file-path": And(
-                os.path.exists, error="Config file doesn't exist"
-            )
-        }
+        {"--config-file-path": And(os.path.exists, error="Config file doesn't exist")}
     )
     args = schema.validate(args)
 
@@ -94,9 +87,7 @@ def serve(
 
                     data = client_socket.recv(1024).decode("utf-8").rstrip()
 
-                    response = str(
-                        Response(checks=get_checks_from_data(config, data))
-                    )
+                    response = str(Response(checks=get_checks_from_data(config, data)))
 
                     logger.info(
                         "%s Sending back response '%s'...",

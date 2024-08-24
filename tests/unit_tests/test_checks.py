@@ -18,13 +18,9 @@ def test_check_command_list(config: Config) -> None:
 
 def test_check_state_positive(config: Config) -> None:
     assert (
-        config.get_check_by_name(name="functional_service").state
-        == CheckState.POSITIVE
+        config.get_check_by_name(name="functional_service").state == CheckState.POSITIVE
     )
 
 
 def test_check_state_negative(config: Config) -> None:
-    assert (
-        config.get_check_by_name(name="broken_service").state
-        == CheckState.NEGATIVE
-    )
+    assert config.get_check_by_name(name="broken_service").state == CheckState.NEGATIVE
