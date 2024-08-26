@@ -9,12 +9,6 @@ HAProxy supports two types of health checks:
 
 # Install
 
-## Generic
-
-Run the following command to create a source distribution:
-
-    python3 setup.py sdist
-
 ## Debian
 
 Run the following commands to build a Debian package:
