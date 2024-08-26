@@ -1,5 +1,5 @@
-from sway.config import Config
-from sway.haproxy import HAProxyStateWord, Response
+from cyberfusion.Sway.config import Config
+from cyberfusion.Sway.haproxy import HAProxyStateWord, Response
 
 
 def test_response_negative_state_checks(config: Config) -> None:

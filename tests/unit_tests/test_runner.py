@@ -1,6 +1,6 @@
 import pytest
 
-from sway.runner import (
+from cyberfusion.Sway.runner import (
     CommandHasNonZeroReturnCodeError,
     CommandTimeoutError,
     execute_command,

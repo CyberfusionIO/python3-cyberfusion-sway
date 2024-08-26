@@ -3,7 +3,7 @@
 from enum import Enum
 from typing import List, Optional
 
-from sway.checks import Check, CheckState
+from cyberfusion.Sway.checks import Check, CheckState
 
 
 class HAProxyStateWord(Enum):

@@ -4,7 +4,7 @@ from dataclasses import dataclass
 from enum import Enum
 from typing import List, Union
 
-from sway.runner import execute_command
+from cyberfusion.Sway.runner import execute_command
 
 
 @dataclass

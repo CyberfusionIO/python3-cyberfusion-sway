@@ -1,7 +1,7 @@
 import pytest
 
-from sway.checks import CheckNotExistsError
-from sway.config import Config
+from cyberfusion.Sway.checks import CheckNotExistsError
+from cyberfusion.Sway.config import Config
 
 
 def test_config_checks_amount(config: Config) -> None:
