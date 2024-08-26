@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "python3-cyberfusion-sway"
-version = "1.0.10.1"
+version = "1.0.10.2"
 description = "Sway is an agent for HAProxy agent health checks."
 readme = "README.md"
 authors = [
@@ -21,4 +21,4 @@ dependencies = [
 "Source" = "https://github.com/CyberfusionIO/python3-cyberfusion-sway"
 
 [project.scripts]
-sway-server = "sway.server:serve"
+sway-server = "cyberfusion.Sway.server:serve"
