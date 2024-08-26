@@ -1,3 +1,9 @@
+python3-cyberfusion-sway (1.0.10.1) unstable; urgency=low
+
+  - Remove extraneous __init__.py files
+
+ -- William Edwards <wedwards@cyberfusion.nl>  Mon, 26 Aug 2024 11:38:00 +0200
+
 python3-cyberfusion-sway (1.0.10) unstable; urgency=low
 
   - Remove deprecated setup.py in favour of pyproject.toml
