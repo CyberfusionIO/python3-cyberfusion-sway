@@ -1,3 +1,9 @@
+python3-cyberfusion-sway (1.0.10.2) unstable; urgency=low
+
+  - Fix script module
+
+ -- William Edwards <wedwards@cyberfusion.nl>  Mon, 26 Aug 2024 15:09:00 +0200
+
 python3-cyberfusion-sway (1.0.10.1) unstable; urgency=low
 
   - Remove extraneous __init__.py files
