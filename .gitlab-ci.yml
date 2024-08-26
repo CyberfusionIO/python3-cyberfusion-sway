@@ -23,7 +23,7 @@ unit test and feature test:
     - adduser --disabled-password --gecos "" sway
     - pip install --no-cache-dir -r requirements/test.txt
     - pip install .
-    - sudo -u sway pytest -n 10 -vvv --cov-branch --cov=sway --cov-config=.coveragerc --cov-fail-under=80 --junitxml=report-pytest.xml
+    - sudo -u sway pytest -n 10 -vvv --cov-branch --cov=cyberfusion.Sway --cov-config=.coveragerc --cov-fail-under=80 --junitxml=report-pytest.xml
   artifacts:
     reports:
       junit: report-*.xml

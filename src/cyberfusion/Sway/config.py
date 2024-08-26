@@ -4,7 +4,7 @@ from typing import List
 
 import yaml
 
-from sway.checks import Check, CheckNotExistsError
+from cyberfusion.Sway.checks import Check, CheckNotExistsError
 
 
 class Config:

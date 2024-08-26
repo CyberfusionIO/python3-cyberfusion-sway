@@ -19,10 +19,10 @@ import docopt
 import sdnotify
 from schema import And, Schema
 
-from sway.checks import Check, CheckNotExistsError
-from sway.config import Config
-from sway.haproxy import Response
-from sway.runner import TIMEOUT_COMMAND
+from cyberfusion.Sway.checks import Check, CheckNotExistsError
+from cyberfusion.Sway.config import Config
+from cyberfusion.Sway.haproxy import Response
+from cyberfusion.Sway.runner import TIMEOUT_COMMAND
 
 TIMEOUT_SOCKET = TIMEOUT_COMMAND + 1
 

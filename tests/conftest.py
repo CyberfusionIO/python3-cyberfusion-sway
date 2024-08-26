@@ -7,8 +7,8 @@ import docopt
 import pytest
 from pytest_mock import MockerFixture
 
-from sway import server
-from sway.config import Config
+from cyberfusion.Sway import server
+from cyberfusion.Sway.config import Config
 
 
 @pytest.fixture
@@ -19,7 +19,7 @@ def config() -> Config:
 @pytest.fixture
 def sway_server(mocker: MockerFixture, config: Config):
     mocker.patch(
-        "sway.server.get_args",
+        "cyberfusion.Sway.server.get_args",
         return_value=docopt.docopt(server.__doc__, ["--config-file-path", config.path]),
     )
 

@@ -1,5 +1,5 @@
-from sway.checks import CheckState
-from sway.config import Config
+from cyberfusion.Sway.checks import CheckState
+from cyberfusion.Sway.config import Config
 
 
 def test_check_command_string(config: Config) -> None:

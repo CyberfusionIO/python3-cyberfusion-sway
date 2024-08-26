@@ -5,8 +5,8 @@ import pytest
 import schema
 from pytest_mock import MockerFixture
 
-from sway import server
-from sway.config import Config
+from cyberfusion.Sway import server
+from cyberfusion.Sway.config import Config
 
 
 def test_config_file_path_not_exists(mocker: MockerFixture) -> None:
@@ -15,7 +15,7 @@ def test_config_file_path_not_exists(mocker: MockerFixture) -> None:
     assert not os.path.isfile(PATH)
 
     mocker.patch(
-        "sway.server.get_args",
+        "cyberfusion.Sway.server.get_args",
         return_value=docopt.docopt(server.__doc__, ["--config-file-path", PATH]),
     )
 
