@@ -46,7 +46,12 @@ def get_args() -> docopt.Dict:
 
 def get_checks_from_data(config: Config, data: str) -> List[Check]:
     """Get checks objects from TCP request data."""
-    return [config.get_check_by_name(name=check_name) for check_name in data.split(",")]
+    if not data:
+        return []
+
+    checks = data.split(",")
+
+    return [config.get_check_by_name(name=check_name) for check_name in checks]
 
 
 def serve(
@@ -87,7 +92,9 @@ def serve(
 
                     data = client_socket.recv(1024).decode("utf-8").rstrip()
 
-                    response = str(Response(checks=get_checks_from_data(config, data)))
+                    response = (
+                        str(Response(checks=get_checks_from_data(config, data))) + "\n"
+                    )
 
                     logger.info(
                         "%s Sending back response '%s'...",
@@ -95,9 +102,9 @@ def serve(
                         response.rstrip(),
                     )
                     client_socket.sendall(response.encode("utf-8"))
-            except CheckNotExistsError:
+            except CheckNotExistsError as e:
                 logger.warning(
-                    "%s Requested non-existent check, not sending back response",
+                    f"%s Requested non-existent check '{e.name}', not sending back response",
                     client_address,
                 )
             except socket.timeout:

@@ -4,6 +4,7 @@ from enum import Enum
 from typing import List, Optional
 
 from cyberfusion.Sway.checks import Check, CheckState
+from cyberfusion.Sway.runner import determine_weight
 
 
 class HAProxyStateWord(Enum):
@@ -67,9 +68,19 @@ class Response:
 
         return HAProxyStateWord.UP
 
+    @property
+    def weight(self) -> str:
+        """Get weight."""
+        return str(determine_weight()) + "%"
+
     def __str__(self) -> str:
         """Stringify response."""
-        if self.description is not None:
-            return f"{self.state.value} {self.description}\n"
+        result = []
 
-        return f"{self.state.value}\n"
+        result.append(self.weight)
+        result.append(self.state.value)
+
+        if self.description is not None:
+            result.append(self.description)
+
+        return " ".join(result)
