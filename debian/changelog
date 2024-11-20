@@ -1,3 +1,9 @@
+python3-cyberfusion-sway (1.1.1) unstable; urgency=low
+
+  - Fix TypeError when returning response
+
+ -- William Edwards <wedwards@cyberfusion.nl>  Wed, 20 Nov 2024 15:22:00 +0200
+
 python3-cyberfusion-sway (1.1) unstable; urgency=low
 
   - Add support for weights

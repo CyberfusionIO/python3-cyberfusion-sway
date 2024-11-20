@@ -1,6 +1,7 @@
 """HAProxy-related classes."""
 
 from enum import Enum
+from functools import cached_property
 from typing import List, Optional
 
 from cyberfusion.Sway.checks import Check, CheckState
@@ -31,7 +32,7 @@ class Response:
         """Set attributes."""
         self.checks = checks
 
-    @property
+    @cached_property
     def _negative_state_checks(self) -> List[Check]:
         """Get checks with negative state."""
         result = []
@@ -44,7 +45,7 @@ class Response:
 
         return result
 
-    @property
+    @cached_property
     def description(self) -> Optional[str]:
         """Get description."""
         if not self._negative_state_checks:
@@ -60,7 +61,7 @@ class Response:
 
         return " ".join(words)
 
-    @property
+    @cached_property
     def state(self) -> HAProxyStateWord:
         """Get state."""
         if self._negative_state_checks:
@@ -68,7 +69,7 @@ class Response:
 
         return HAProxyStateWord.UP
 
-    @property
+    @cached_property
     def weight(self) -> str:
         """Get weight."""
         return str(determine_weight()) + "%"
