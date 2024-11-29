@@ -1,5 +1,6 @@
 """Commands runner."""
 
+import logging
 import os
 import subprocess
 from dataclasses import dataclass
@@ -27,11 +28,19 @@ class CommandTimeoutError(Exception):
 def execute_command(command: List[str], *, timeout: int = TIMEOUT_COMMAND) -> None:
     """Execute command."""
     try:
-        subprocess.check_output(command, stderr=subprocess.STDOUT, timeout=timeout)
+        subprocess.check_output(
+            command, stderr=subprocess.STDOUT, timeout=timeout, text=True
+        )
     except subprocess.CalledProcessError as e:
-        raise CommandHasNonZeroReturnCodeError(
+        logging.warning(
+            f"Failed to execute command '{command}' (RC {e.returncode}): {e.output}"
+        )
+
+        exception = CommandHasNonZeroReturnCodeError(
             command=command, return_code=e.returncode, output=e.output
-        ) from e
+        )
+
+        raise exception from e
     except subprocess.TimeoutExpired as e:
         raise CommandTimeoutError(command=command) from e
 
