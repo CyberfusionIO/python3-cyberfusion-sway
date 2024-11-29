@@ -1,3 +1,9 @@
+python3-cyberfusion-sway (1.2) unstable; urgency=low
+
+  - Log command output
+
+ -- William Edwards <wedwards@cyberfusion.nl>  Fri, 29 Nov 2024 10:35:00 +0200
+
 python3-cyberfusion-sway (1.1.1) unstable; urgency=low
 
   - Fix TypeError when returning response
