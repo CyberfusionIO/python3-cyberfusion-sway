@@ -42,6 +42,8 @@ def execute_command(command: List[str], *, timeout: int = TIMEOUT_COMMAND) -> No
 
         raise exception from e
     except subprocess.TimeoutExpired as e:
+        logging.warning(f"Failed to execute command '{command}' (timeout)")
+
         raise CommandTimeoutError(command=command) from e
 
 

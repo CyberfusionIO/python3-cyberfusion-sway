@@ -1,3 +1,9 @@
+python3-cyberfusion-sway (1.2.1) unstable; urgency=low
+
+  - Log timed out commands
+
+ -- William Edwards <wedwards@cyberfusion.nl>  Mon, 02 Dec 2024 10:59:00 +0200
+
 python3-cyberfusion-sway (1.2) unstable; urgency=low
 
   - Log command output
