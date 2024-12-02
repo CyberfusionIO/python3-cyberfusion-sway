@@ -26,11 +26,13 @@ def test_execute_command_non_zero_return_code(caplog: LogCaptureFixture) -> None
     )
 
 
-def test_execute_command_timeout() -> None:
+def test_execute_command_timeout(caplog: LogCaptureFixture) -> None:
     with pytest.raises(CommandTimeoutError) as e:
         execute_command(["sleep", "5"], timeout=1)
 
     assert e.value.command == ["sleep", "5"]
+
+    assert f"Failed to execute command '{e.value.command}' (timeout)" in caplog.text
 
 
 def test_determine_weight_upper_bound(mocker: MockerFixture) -> None:
