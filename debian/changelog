@@ -4,6 +4,12 @@ python3-cyberfusion-sway (1.3.0) unstable; urgency=low
 
  -- William Edwards <wedwards@cyberfusion.nl>  Tue, 10 Dec 2024 16:23:00 +0200
 
+python3-cyberfusion-sway (1.2.2) unstable; urgency=low
+
+  - Raise stdout log level to warning
+
+ -- William Edwards <wedwards@cyberfusion.nl>  Mon, 03 Feb 2025 19:35:00 +0200
+
 python3-cyberfusion-sway (1.2.1) unstable; urgency=low
 
   - Log timed out commands
