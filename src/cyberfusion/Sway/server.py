@@ -32,7 +32,7 @@ root_logger.propagate = False
 root_logger.setLevel(logging.DEBUG)
 
 handler = logging.StreamHandler(sys.stdout)
-handler.setLevel(logging.INFO)
+handler.setLevel(logging.WARNING)
 
 root_logger.addHandler(handler)
 
