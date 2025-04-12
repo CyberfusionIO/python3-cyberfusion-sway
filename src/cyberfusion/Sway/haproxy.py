@@ -14,13 +14,13 @@ class HAProxyStateWord(Enum):
     From https://cbonte.github.io/haproxy-dconv/2.4/configuration.html#5.2-agent-check
     """
 
-    READY: str = "ready"
-    DRAIN: str = "drain"
-    MAINT: str = "maint"
-    DOWN: str = "down"
-    FAIL: str = "fail"
-    STOPPED: str = "stopped"
-    UP: str = "up"
+    READY = "ready"
+    DRAIN = "drain"
+    MAINT = "maint"
+    DOWN = "down"
+    FAIL = "fail"
+    STOPPED = "stopped"
+    UP = "up"
 
 
 class Response:

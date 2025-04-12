@@ -17,8 +17,8 @@ class CheckNotExistsError(Exception):
 class CheckState(Enum):
     """Check states."""
 
-    POSITIVE: str = "positive"
-    NEGATIVE: str = "negative"
+    POSITIVE = "positive"
+    NEGATIVE = "negative"
 
 
 class Check:
