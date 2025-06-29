@@ -2,7 +2,7 @@ Source: python3-cyberfusion-sway
 Section: net
 Priority: optional
 Maintainer: William Edwards <wedwards@cyberfusion.nl>
-Build-Depends: python3-all, dh-python, debhelper (>= 13), python3-setuptools, pybuild-plugin-pyproject
+Build-Depends: python3-all, dh-python, debhelper (>= 13), python3-setuptools, pybuild-plugin-pyproject, dh-sequence-single-binary
 Standards-Version: 4.3.0
 
 Package: python3-cyberfusion-sway
