@@ -1,4 +1,4 @@
-mypy==1.17.1
+mypy==1.18.1
 pre-commit==4.3.0
 ruff==0.13.0
 types-PyYAML==6.0.12.20250822
