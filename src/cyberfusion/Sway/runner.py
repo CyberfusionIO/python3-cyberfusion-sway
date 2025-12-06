@@ -27,7 +27,7 @@ class CommandTimeoutError(Exception):
     command: List[str]
 
 
-@retry(stop=stop_after_attempt(2), wait=wait_fixed(2), reraise=True)  # type: ignore[misc]
+@retry(stop=stop_after_attempt(2), wait=wait_fixed(2), reraise=True)  # type: ignore[untyped-decorator]
 def execute_command(command: List[str], *, timeout: int = TIMEOUT_COMMAND) -> None:
     """Execute command."""
     try:
