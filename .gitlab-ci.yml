@@ -16,7 +16,7 @@ stages:
 
 unit test and feature test:
   stage: test
-  image: python:3.11
+  image: python:3.13
   script:
     - !reference [.add repositories, script]
     - apt-get -y install sudo
