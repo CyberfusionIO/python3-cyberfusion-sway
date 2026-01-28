@@ -12,10 +12,10 @@ authors = [
 ]
 dependencies = [
     "docopt==0.6.2",
-    "PyYAML==6.0.2",
-    "schema==0.7.7",
+    "PyYAML==6.0.3",
+    "schema==0.7.8",
     "sdnotify==0.3.2",
-    "tenacity==8.4.2",
+    "tenacity==8.5.0",
 ]
 
 [project.urls]
